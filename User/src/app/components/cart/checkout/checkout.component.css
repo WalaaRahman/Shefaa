@@ -1,0 +1,15 @@
+/* .checkout-page{
+    background-color:#f4f8fb ;
+    background-image:url("/assets/images/cartbg.jpg");
+    opacity: 0.5;
+} */
+
+#add-btn {
+    border-color: #32c69a;
+    color: #32c69a;
+}
+
+#add-btn:hover {
+    background: #32c69a;
+    color:white;
+}

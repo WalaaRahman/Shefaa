@@ -1,0 +1,15 @@
+.error-template {
+    margin-top: 5%;
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.error-actions {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.error-actions .btn-info {
+    margin-right: 10px;
+    background-color: #32c69a;
+}

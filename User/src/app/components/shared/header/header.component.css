@@ -1,0 +1,98 @@
+.container-fluid {
+    justify-content: start;
+}
+
+ul li .nav-hover {
+    color: white;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+ul li .nav-hover:hover {
+    background-color: #f4f8fb;
+    color: #32c69a;
+    font-size: 16px;
+    border-radius: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.toggle-hover:hover {
+    background-color: #f4f8fb;
+    color: #32c69a;
+    border-radius: 15px;
+}
+
+.searchsmall {
+    width: 120px;
+}
+
+.searchsmall:focus {
+    width: 170px;
+}
+
+.searchmedium {
+    width: 170px;
+}
+
+.searchmedium:focus {
+    width: 250px;
+}
+
+.searchlarge {
+    width: 155px;
+}
+
+
+/* .searchlarge:focus{
+    width: 220px; 
+} */
+
+.searchxlarge {
+    width: 320px;
+}
+
+.searchxlarge:focus {
+    width: 365px;
+}
+
+.nav-icon {
+    font-size: 25px;
+    color: #f4f8fb;
+}
+
+.nav-icon-hov:hover {
+    color: #838383;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+form button i:hover {
+    color: #32c69a;
+}
+
+.badge-notification {
+    position: absolute;
+    font-size: .7rem;
+    margin-top: -.1rem;
+    margin-left: -.5rem;
+    padding: .2em .45em;
+}
+
+.badge-notification-small {
+    position: relative;
+    font-size: .7rem;
+    top: -18px;
+    left: -7px;
+}
+
+.link:hover {
+    cursor: pointer;
+    color: #32c69a;
+}

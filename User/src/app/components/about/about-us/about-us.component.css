@@ -1,0 +1,41 @@
+.geeks { 
+    overflow: hidden; 
+    margin: 0 auto; 
+} 
+
+.geeks img { 
+    width: 100%; 
+    transition: 0.5s all ease-in-out; 
+} 
+
+.geeks:hover img { 
+    transform: scale(1.5); 
+} 
+
+.centered {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centered2 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centeredd {
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centeredd2 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

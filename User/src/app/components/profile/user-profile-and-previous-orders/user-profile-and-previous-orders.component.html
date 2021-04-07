@@ -1,0 +1,94 @@
+<body>
+    <div class="container-fluid" style="background-color:#f4f8fb;">
+        <div class="row">
+            <!-- Profile/ User Information  -->
+            <div class="col-sm-4 col-md-4" style="margin-top: 80px;">
+                <!-- <div class="sticky-top"> -->
+                <div class="flex-column">
+                    <div class="card shadow" style="width: 100%; height: 100%; margin-bottom: 55px">
+                        <a [routerLink]="['/profile/edit']"><i class="fa fa-pencil " id="edit-pen"
+                  style="float: right; margin: 15px;"></i></a>
+                        <div class="text-center" *ngIf="user">
+                            <img *ngIf="user.photoURL" class="card-img-top" src="http://localhost:3000/{{user.photoURL}}" alt="Card image" style="width: 50%; border-radius: 50%" />
+                            <img *ngIf="!user.photoURL" src="assets/images/pp-man.png" class="rounded-circle" alt="user Image" style="width: 50%; border-radius: 50%">
+
+                        </div>
+                        <div class="card-body d-sm-block" *ngIf="user">
+                            <h4 class="card-title text-center">{{user.name}}</h4>
+                            <p *ngIf="user.address" class="card-text col-12-sm">
+                                <i class="fa fa-map-marker fa-1x" style="color: #32c69a"></i> &nbsp; {{user.address}}
+                            </p>
+                            <p *ngIf="!user.address" class="card-text col-12-sm">
+                                <i class="fa fa-map-marker fa-1x" style="color: #32c69a"></i> &nbsp; address
+                            </p>
+
+                            <p *ngIf="user.phone" class="card-text">
+                                <i class="fa fa-mobile fa-2x" aria-hidden="true" style="color: #32c69a"></i> &nbsp; {{user.phone}}
+                            </p>
+                            <p *ngIf="!user.phone" class="card-text">
+                                <i class="fa fa-mobile fa-2x" aria-hidden="true" style="color: #32c69a"></i> &nbsp; phone
+                            </p>
+
+                            <p class="card-text col-12-sm">
+                                <i class="fa fa-envelope fa-1x" aria-hidden="true" style="color: #32c69a"></i> &nbsp; {{user.email}}
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+
+            <!--  Previous Orders  -->
+            <!-- <div class="col-sm-3"></div> -->
+            <div class="col-sm-8 col-md-8">
+                <h2 style="margin-bottom: 40px; margin-top: 80px">Previous Orders</h2>
+                <div class="row justify-content-center mb-5">
+                    <a (click)="clearOrders()" class="btn btn-danger btn-sm d-block d-sm-none"><i class="fa fa-trash"></i> clear Orders</a>
+                    <a (click)="clearOrders()" class="btn btn-danger d-none d-sm-block"><i class="fa fa-trash"></i> clear Orders</a>
+                </div>
+                <div class="text-center" *ngIf="previousOrders.length == 0">
+                    No Previous orders found !
+                </div>
+                <div>
+                    <div class="card shadow mb-5" *ngFor="let order of previousOrders ; let currentIndex = index">
+                        <div>
+                            <p><i class="fa fa-calendar ml-2 mt-2" style="color:#32c69a ; font-size: 25px;" aria-hidden="true"></i> {{order.orderTime | date:'medium' }}</p>
+                            <div class="card-body ">
+                                <div class="row d-flex text-center">
+                                    <div class="col-md-5 col-sm-5 m-4  d-flex " *ngFor="let product of order.products" style="border: solid 2px #838383;">
+                                        <img src="{{product.photoURL}}" style="width: 50%; height:185px;" />
+                                        <div class="container">
+                                            <div>
+                                                <p>{{product.name}}</p>
+                                            </div>
+                                            <div>
+                                                <p>{{product.price}} EGP</p>
+                                            </div>
+                                            <div>
+                                                <p style="color: #404040;">{{product.description | maxLength:30 }}</p>
+
+                                            </div>
+                                            <div>
+                                                <a [routerLink]="['/products/details']" [queryParams]="{ID: product._id}" routerLinkActive="router-link-active"> more details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <p class="text-center">
+                                    <b>Total: {{order.totalPrice}} EGP</b>
+                                    <button (click)="orderAgain(order)" class="btn " style="float: left;background-color:#32c69a;color:white;"> Order Again </button>
+                                    <button (click)="deleteOrder(order.id)" class="btn btn-danger" style="float: right;"> Delete Order </button>
+
+                                </p>
+                            </div>
+                        </div>
+                    </div> <br>
+                    <hr>
+                </div> <br>
+            </div>
+        </div>
+    </div>
+</body>

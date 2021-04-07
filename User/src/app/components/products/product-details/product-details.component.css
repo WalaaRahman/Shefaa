@@ -1,0 +1,13 @@
+#add-btn {
+    border-color: #32c69a;
+    color: #32c69a;
+}
+
+#add-btn:hover {
+    background: #32c69a;
+    color:white;
+}
+
+#heart {
+    float: right;
+}

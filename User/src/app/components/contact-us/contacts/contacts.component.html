@@ -1,0 +1,133 @@
+<app-header></app-header>
+<!-- <div class="container-fluid"> -->
+<div style="margin-top: 56px;">
+    <img src="https://cdn.theatlantic.com/thumbor/mcHwzc-bkDoAhr--ff6QNmnDYVI=/0x465:5000x3278/720x405/media/img/mt/2020/04/TRU2351883-1/original.jpg" alt="Snow" style="width:100%; height: 400px; opacity: 0.6; background-attachment:fixed;">
+    <h1 class="text-center centered" style="color: #404040; margin-top: -50px;">We are pleased to keep in touch with you !</h1>
+</div>
+<fieldset class="my-3 shadow" style="margin-right:100px; margin-left:100px;  border-radius:20px; background-color:#f4f8fb;">
+    <legend class='text-left' style="font-size: 40px; color: #404040; width:270px; padding:5px 10px;">Our Contacts</legend>
+    <div style="padding:10px ;">
+        <div class="row mx-2">
+            <div class="col-5 col-lg-5 col-md-5 col-sm-5 my-3 text-center">
+                <i class="fa fa-address-book my-3" style="font-size: 60px; color: #32c69a;"></i>
+            </div>
+            <div class="col-7 col-lg-7 col-md-7 col-sm-7 my-3">
+                <div class="row my-1">
+                    <i class="fa fa-phone mx-3" style="font-size: 30px; color: #3a3d3b;"></i>
+                    <span style="font-size: 20px; color: #838383;">+0115511515</span>
+                </div>
+                <div class="row my-1">
+                    <i class="fa fa-phone mx-3" style="font-size: 30px; color: #3a3d3b;"></i>
+                    <span style="font-size: 20px; color: #838383;">+0126612616</span>
+                </div>
+                <div class="row my-1">
+                    <i class="fa fa-whatsapp mx-3" style="font-size: 30px; color: #02b320;"></i>
+                    <span style="font-size: 20px; color: #838383;">+0104410414</span>
+                </div>
+            </div>
+        </div>
+        <div class="row mx-2">
+            <div class="col-5 col-lg-5 col-md-5 col-sm-5 my-3 text-center">
+                <i class="fa fa-facebook-square" style="font-size: 60px; color: #32c69a"></i>
+            </div>
+            <div class="col-7 col-lg-7 col-md-7 col-sm-7 my-4">
+                <a href="https://www.facebook.com/shefaa/official" class="text-decoration-none" style="font-size: 20px; color: #838383;">www.facebook.com/shefaa/official</a>
+            </div>
+        </div>
+        <div class="row mx-2">
+            <div class="col-5 col-lg-5 col-md-5 col-sm-5 my-3 text-center">
+                <i class="fa fa-envelope" style="font-size: 60px; color: #32c69a"></i>
+            </div>
+            <div class="col-7 col-lg-7 col-md-7 col-sm-7 my-4">
+                <a href="https://Chefaa.mearn.official@gmail.com" class="text-decoration-none" style="font-size: 20px; color: #838383;">Chefaa.mearn.official@gmail.com</a>
+            </div>
+        </div>
+        <div class="row mx-2">
+            <div class="col-5 col-lg-5 col-md-5 col-sm-5 my-3 text-center">
+                <i class="fa fa-linkedin" style="font-size: 60px; color: #32c69a"></i>
+            </div>
+            <div class="col-7 col-lg-7 col-md-7 col-sm-7 my-4">
+                <a href="htttps://linkedin.com/shefaa.officail" class="text-decoration-none" style="font-size: 20px; color: #838383;">linkedin.com/shefaa.official</a>
+            </div>
+        </div>
+        <div class="row mx-2">
+            <div class="col-5 col-lg-5 col-md-5 col-sm-5 my-3 text-center">
+                <i class="fa fa-twitter" style="font-size: 60px; color: #32c69a"></i>
+            </div>
+            <div class="col-7 col-lg-7 col-md-7 col-sm-7 my-4">
+                <a href="htttps://twitter.com/shefaa.official" class="text-decoration-none" style="font-size: 20px; color: #838383;">twitter.com/shefaa.official</a>
+            </div>
+        </div>
+
+    </div>
+</fieldset>
+
+<!-- start website messages  -->
+<fieldset class="my-3 shadow" style="margin-right:150px; margin-left:150px; border-radius:10px; background-color:#f4f8fb;">
+    <legend class='text-left' style="font-size:25px; color:#404040; width:300px; padding:5px 10px;">Direct website messages </legend>
+    <div style="padding: 50px;">
+        <form [formGroup]="formGroup">
+            <div class="row mb-4">
+                <!-- form name -->
+
+                <label class="form-label" style="color: #838383;">Name :</label>
+                <div class="col-3">
+                    <input formControlName="name" type="text" class="form-control" placeholder="Enter Your Name">
+
+                    <div *ngIf="formGroup.controls['name'].invalid && formGroup.controls['name'].dirty">
+                        <small class="form-text text-danger" *ngIf="formGroup.controls['name'].hasError('required')">Name is required!</small>
+                        <small class="form-text text-danger" *ngIf="formGroup.controls['name'].hasError('minlength')">min length is 8</small>
+                        <small class="form-text text-danger" *ngIf="formGroup.controls['name'].hasError('maxlength')">max length is 25</small>
+                    </div>
+                </div>
+
+                <!-- form email -->
+                <label class="form-label" style="color: #838383;">Email address :</label>
+                <div class="col-4">
+                    <input formControlName="email" type="email" class="form-control" placeholder="Enter Your Email">
+
+                    <div *ngIf="formGroup.controls['email'].invalid && formGroup.controls['email'].dirty">
+                        <small class="form-text text-danger" *ngIf="formGroup.controls['email'].hasError('required')">Email is required!</small>
+                        <small class="form-text text-danger" *ngIf="formGroup.controls['email'].hasError('email')">invalid email!</small>
+
+                    </div>
+                </div>
+
+                <!-- form phone -->
+                <label class="form-label" style="color: #838383;">Phone :</label>
+                <div class="col-2">
+                    <input formControlName="phone" type="phone" placeholder="optional" class="form-control">
+                </div>
+            </div>
+
+            <!-- form subject -->
+            <div class="mb-4 text-center">
+                <span style="color: #838383;">
+                        Subject : <input formControlName="subject" type="text" class="form-control">
+                    </span>
+                <div *ngIf="formGroup.controls['subject'].invalid && formGroup.controls['subject'].dirty">
+                    <small class="form-text text-danger" *ngIf="formGroup.controls['subject'].hasError('required')">subject is required!</small>
+                    <small class="form-text text-danger" *ngIf="formGroup.controls['subject'].hasError('minlength')">min length is 5</small>
+                    <small class="form-text text-danger" *ngIf="formGroup.controls['subject'].hasError('maxlength')">max length is 100</small>
+                </div>
+            </div>
+
+            <!-- form message -->
+            <div class="mb-4">
+                <textarea formControlName="messageContent" class="form-control" placeholder="Your Message.........." rows="4"></textarea>
+                <div *ngIf="formGroup.controls['messageContent'].invalid && formGroup.controls['messageContent'].dirty">
+                    <small class="form-text text-danger" *ngIf="formGroup.controls['messageContent'].hasError('required')">Message is required!</small>
+                    <small class="form-text text-danger" *ngIf="formGroup.controls['messageContent'].hasError('minlength')">min length is 10</small>
+                    <small class="form-text text-danger" *ngIf="formGroup.controls['messageContent'].hasError('maxlength')">max length is 500</small>
+                </div>
+            </div>
+            <div class="text-center">
+                <button [disabled]="formGroup.invalid" (click)=sendMessage() type="submit" class="btn" style="background-color: #32c69a; color: white;">Submit</button>
+            </div>
+        </form>
+    </div>
+</fieldset>
+<!-- end website messages  -->
+
+<!-- </div> -->
+<app-footer></app-footer>
