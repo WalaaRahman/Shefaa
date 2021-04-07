@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<div style="background-color: #f4f8fb; padding-bottom: 228px;">
+    <div class="container" style="padding-top: 80px;">
+        <h2 class="text-center" style="color: #404040;">Users Prescriptions</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mt-5  justify-content-center align-self-center">
+            <div class="col-sm-6 m-2  " *ngFor="let prescription of prescriptions;">
+                <div class="card shadow h-100 " id="product-card">
+                    <img src="http://localhost:3000/{{prescription.prescriptionURL}}" alt="" class="card-img-top" style="width:100%;height: auto;">
+                    <div class="card-body">
+                        <h5 class="card-text">Name: <b><i> {{prescription.user.name}}</i></b></h5>
+                        <h6 class="card-text"> Email: {{prescription.user.email}}</h6>
+                        <h6 class="card-text">Phone: {{prescription.user.phone}}</h6>
+                        <!-- <p class="card-title">{{prescription.name}}</p>
+              <p class="card-title"> In Stock: <strong style="color: red;"> {{prescription.quantity}} </strong> pieces</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<div style="background-color: #f4f8fb; padding-bottom: 228px;">
+    <div class="container-fluid" style="padding-top: 80px;">
+        <h2 class="text-center" style="color: #404040;">Orders</h2>
+        <hr>
+        <div class="card">
+
+            <table class="table table-striped" id="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Order No.</th>
+                        <th>Date</th>
+                        <th>Order Items</th>
+                        <th>Total Price</th>
+                        <th> Customer Name</th>
+                        <th> Customer Address</th>
+                        <th> Customer Phone</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <div *ngIf="!users">
+                    Loading ..................
+                </div>
+                <tbody *ngIf="users">
+                    <tr *ngFor="let order of orders;let currentIndex=index">
+                        <td>{{currentIndex+1}}</td>
+                        <td>{{order._id }} </td>
+                        <td> {{order.createdAt | date:'short'}}</td>
+                        <td><a [routerLink]="['/orders/items']" [queryParams]="{IDs: order.products}" routerLinkActive="router-link-active" type="button" class="btn" style="background-color: #32c69a; color: white;">Show </a></td>
+                        <td>{{order.totalPrice}} </td>
+                        <td>{{order.customer.name}}</td>
+                        <td>{{order.customer.address}}</td>
+                        <td>{{order.customer.phone}}</td>
+
+                        <td>
+                            <button (click)="process(order)" type="button" class="btn" style="background-color: #838383; color: white;">Process </button>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> <br> <br>
+
+<app-footer style="position: absolute; bottom: 0%; width: 100%;"></app-footer>

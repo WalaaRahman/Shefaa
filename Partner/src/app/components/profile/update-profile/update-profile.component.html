@@ -1,0 +1,143 @@
+<app-header></app-header>
+
+<div class="d-flex justify-content-center edit-page" style="margin-top: 80px;">
+    <div class="col-sm-8 shadow mt-3" style="padding-top: 20px; margin-bottom: 15px; background-color: white">
+
+        <div class="d-flex justify-content-center w-100 ">
+
+            <form [formGroup]="formGroup" *ngIf="partner" style="padding-bottom: 35px;width: 60%;">
+
+                <div class="text-center">
+
+                    <div *ngIf="!isUploadedPhoto">
+                        <img src="http://localhost:3000/{{partner.photoURL}}" style="width: 30%; border-radius: 100%" alt="image">
+                    </div>
+
+                    <div *ngIf="isUploadedPhoto">
+                        <img src="{{url}}" style="width: 30%; border-radius: 100%" alt="image" />
+                    </div>
+
+                    <div class="custom-file">
+                        <input type="file" (change)="onFileChanged($event)" class=" custom-file-input " id="customFile ">
+                        <label class="custom-label" for="customFile ">Choose file</label> <br>
+                        <!-- <button (click)="setIsUploaded()" class="btn " style="background-color: #838383; color: white; margin-top: 5px ">Preview photo</button> -->
+
+                        <!-- class="custom-file-label " -->
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="name ">Name:</label>
+                    <input type="text" formControlName="name" [(ngModel)]="partner.name" class="form-control " placeholder="Enter Name" id="name " />
+
+                    <div *ngIf="formGroup.controls['name'].invalid && formGroup.controls['name'].dirty">
+                        <small class="form-text text-danger" *ngIf="formGroup.controls['name'].hasError('required')">Name is required!</small>
+                        <small class="form-text text-danger" *ngIf="formGroup.controls['name'].hasError('minlength')">min length is 8</small>
+                        <small class="form-text text-danger" *ngIf="formGroup.controls['name'].hasError('maxlength')">max length is 25</small>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <label for="email ">Email address:</label>
+                    <input type="email" formControlName="email" [(ngModel)]="partner.email" class="form-control " placeholder="Enter email " id="email " />
+
+                    <div *ngIf="formGroup.controls['email'].invalid && formGroup.controls['email'].dirty">
+                        <small class="form-text text-danger" *ngIf="formGroup.controls['email'].hasError('required')">Email is required!</small>
+                        <small class="form-text text-danger" *ngIf="formGroup.controls['email'].hasError('email')">invalid1</small>
+                        <small class="form-text text-danger" *ngIf="formGroup.controls['email'].hasError('minLength')">min length is 10</small>
+                        <small class="form-text text-danger" *ngIf="formGroup.controls['email'].hasError('maxlength')">max length is 50</small>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <label for="mobilenumber ">Mobile Number:</label>
+                    <input type="text" formControlName="phone" [(ngModel)]="partner.phone" class="form-control " placeholder="Mobile Number " id="phone" />
+                </div>
+
+                <div class="form-group ">
+                    <label for="address ">Address:</label>
+                    <input type="text" formControlName="address" [(ngModel)]="partner.address" class="form-control " placeholder="Adderss " id="address " />
+                </div>
+
+                <!-- Default radio -->
+                <!-- <div class="form-check ">
+                    <input class="form-check-input " type="radio " name="flexRadioDefault " id="flexRadioDefault1 " />
+                    <label class="form-check-label " for="flexRadioDefault1 ">Female</label>
+                </div> -->
+
+                <!-- Default checked radio -->
+                <!-- <div class="form-check ">
+                    <input class="form-check-input " type="radio " name="flexRadioDefault " id="flexRadioDefault2 " checked/>
+                    <label class="form-check-label " for="flexRadioDefault2 ">Male</label>
+                </div> -->
+
+                <button [disabled]="formGroup.invalid" (click)="updatePartner();" class="btn " style="background-color: #32c69a; color: white; margin-top: 5px ">update</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <script>
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input ").on("change ", function() {
+        var fileName = $(this).val().split("\\ ").pop();
+        $(this).siblings(".custom-file-label ").addClass("selected ").html(fileName);
+    });
+</script> -->
+<app-footer></app-footer>
+
+<!-- <div class="container " style="margin-top: 75px; ">
+    <div class="row ">
+        <div class="col-sm-1 "></div>
+        <div class="col-sm-10 shadow " style="padding-top:20px;margin-bottom: 15px ; ">
+
+            <div class="text-center ">
+                <img src="/assets/images/pp-male-3.jpg " style="width: 50% ; border-radius:100% ">
+                <br>
+                <br>
+
+                <a type="file " href=" ">Change Profile Photo</a>
+            </div>
+            <br>
+            <form [formGroup]="formGroup " style="padding-bottom: 35px ">
+                <div class="form-group ">
+                    <label for="name ">Name:</label>
+                    <input formControlName="name " type="text " class="form-control " placeholder="Enter Name " id="name " style="width:40% ">
+
+                    <div *ngIf="formGroup.controls[ 'name'].invalid && formGroup.controls[ 'name'].dirty ">
+                        <small class="form-text text-danger " *ngIf="formGroup.controls[ 'name'].hasError( 'required') ">Name is required!</small>
+                        <small class="form-text text-danger " *ngIf="formGroup.controls[ 'name'].hasError( 'minlength') ">min length is 8</small>
+                        <small class="form-text text-danger " *ngIf="formGroup.controls[ 'name'].hasError( 'maxlength') ">max length is 25</small>
+                    </div>
+
+                </div>
+
+                <div class="form-group ">
+                    <label for="email ">Email address:</label>
+                    <input formControlName="email " type="email " class="form-control " placeholder="Enter email " id="email " style="width:40% ">
+
+                    <div *ngIf="formGroup.controls[ 'email'].invalid && formGroup.controls[ 'email'].dirty ">
+                        <small class="form-text text-danger " *ngIf="formGroup.controls[ 'email'].hasError( 'required') ">Email is required!</small>
+                        <small class="form-text text-danger " *ngIf="formGroup.controls[ 'email'].hasError( 'email') ">invalid1</small>
+                        <small class="form-text text-danger " *ngIf="formGroup.controls[ 'email'].hasError( 'minLength') ">min length is 10</small>
+                        <small class="form-text text-danger " *ngIf="formGroup.controls[ 'email'].hasError( 'maxlength') ">max length is 50</small>
+                    </div>
+
+                </div>
+
+                <div class="form-group ">
+                    <label for="mobilenumber ">Mobile Number:</label>
+                    <input type="text " class="form-control " placeholder="Mobile Number " id="mobilenumber " style="width:40% ">
+                </div>
+
+                <div class="form-group ">
+                    <label for="address ">Address:</label>
+                    <input type="text " class="form-control " placeholder="Adderss " id="address " style="width:40% ">
+                </div>
+
+                <button [disabled]="formGroup.invalid " type="submit " (click)="updateUser() " class="btn btn-primary ">Save</button>
+            </form>
+        </div>
+    </div>
+</div> -->

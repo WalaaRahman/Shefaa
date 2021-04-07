@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<div style="background-color: #f4f8fb; padding-bottom: 253px;" *ngIf="products">
+  <div class="mx-5" style="padding-top: 80px;">
+    <h2 style="color: #404040;">Stock</h2>
+    <div class="card" >
+        
+        <table class="table table-striped" >
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Photo</th>
+                <th>Name</th>
+                <!-- <th>Description</th> -->
+                <th>price</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>Edit</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of products;let currentIndex=index">
+                <td>{{currentIndex+1}}</td>
+                
+                <td><img src={{item.photoURL}} style="width: 100px; height: 100px;"></td>
+
+                <td>{{item.name}}</td>
+
+                <!-- <td>{{item.description}}</td> -->
+
+                <td>{{item.price}} EGP</td>
+
+                <td>{{item.quantity}} item</td>
+
+                <td>{{item.category}}</td>
+
+                <td><button [routerLink]="['/products/update']" [queryParams]="{ID: item._id}" routerLinkActive="router-link-active"  type="button" class="btn btn-warning">Edit</button></td>
+
+                <td><button (click)="delete(item._id,currentIndex)"  type="button" class="btn btn-danger">Remove</button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
