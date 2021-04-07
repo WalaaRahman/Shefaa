@@ -1,0 +1,68 @@
+<app-header></app-header>
+<!-- href="javascript:void(0)" onclick="backClicked()" -->
+<div style="margin-top: 80px;">
+    <h2 class="d-flex justify-content-center" style="color: #32c69a;">Product Details</h2>
+    <div class="card shadow m-4 p-2">
+        <div>
+            <a [routerLink]="['/products']" routerLinkActive="router-link-active" style="color: #32c69a; font-size: 40px; float: right;">
+                <i class="fa fa-arrow-circle-left"></i>
+            </a>
+        </div>
+        <div class="row" *ngIf="product">
+            <div class="col-sm-4">
+                <div class="card-body text-center">
+                    <h2 class="card-title d-block d-sm-none" style="color: #404040;"> {{product.name}}</h2>
+                    <h5 class="card-title d-none d-sm-block d-md-none" style="color: #404040;">{{product.name}}</h5>
+                    <h2 class="card-title d-none d-md-block" style="color: #404040;">{{product.name}}</h2>
+                    <img class="card-img my-3" src="{{product.photoURL}}" alt="">
+                    <h5 class="card-title">Price : {{product.price}}</h5>
+                    <a (click)="addToCart(product)" class="btn btn-outline-light m-1" id="add-btn">Add to Cart</a>
+                    <a (click)="addToFavourite(product)" class="btn btn-outline-danger m-1">
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-8 d-block d-sm-none px-4">
+                <div class="dropdown-divider"></div>
+                <div class="card-title" style="color: #32c69a; font-size: 20px;">Description </div>
+                <div class="card-body" style="background-color: #f4f8fb; color: #838383;">
+                    {{product.description}}
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="card-title" style="color: #32c69a; font-size: 20px;">Indications </div>
+                <div class="card-body" style="background-color: #f4f8fb; color: #838383;">
+                    This product is a combination of aspirin, acetaminophen, and caffeine. It is used for the temporary relief of pain from conditions such as muscle aches, toothaches, menstrual cramps, or headaches (including migraine). Aspirin and acetaminophen relieve
+                    pain by keeping your body from making certain natural substances. Caffeine helps increase the effects of aspirin and acetaminophen.
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="card-title" style="color: #32c69a; font-size: 20px;">SideEffects </div>
+                <div class="card-body" style="background-color: #f4f8fb; color: #838383;">
+                    Nausea, vomiting, stomach upset, trouble falling asleep, or a shaky/nervous feeling may occur. If any of these effects persist or worsen, notify your doctor or pharmacist promptly. If your doctor has directed you to use this medication, remember that
+                    he or she has judged that the benefit to you is greater than the risk of side effects.
+                </div>
+                <br>
+            </div>
+            <div class="col-sm-8 d-none d-sm-block" style="border-left: 3px dotted #32c69a;">
+                <div class="card-title" style="color: #32c69a; font-size: 20px;">Description </div>
+                <div class="card-body" style="background-color: #f4f8fb; color: #838383;">
+                    {{product.description}}
+                </div>
+                <br>
+                <div class="card-title" style="color: #32c69a; font-size: 20px;">Indications </div>
+                <div class="card-body" style="background-color: #f4f8fb; color: #838383;">
+                    This product is a combination of aspirin, acetaminophen, and caffeine. It is used for the temporary relief of pain from conditions such as muscle aches, toothaches, menstrual cramps, or headaches (including migraine). Aspirin and acetaminophen relieve
+                    pain by keeping your body from making certain natural substances. Caffeine helps increase the effects of aspirin and acetaminophen.
+                </div>
+                <br>
+                <div class="card-title" style="color: #32c69a; font-size: 20px;">SideEffects </div>
+                <div class="card-body" style="background-color: #f4f8fb; color: #838383;">
+                    Nausea, vomiting, stomach upset, trouble falling asleep, or a shaky/nervous feeling may occur. If any of these effects persist or worsen, notify your doctor or pharmacist promptly. If your doctor has directed you to use this medication, remember that
+                    he or she has judged that the benefit to you is greater than the risk of side effects.
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

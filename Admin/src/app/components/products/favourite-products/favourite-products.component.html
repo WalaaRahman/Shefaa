@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<div class="container-fliud " style="margin-top: 80px; overflow: hidden;">
+    <div class="d-flex justify-content-center mb-4">
+        <h3 class="d-block d-sm-none">My Favourite List</h3>
+        <h1 class="d-none d-sm-block">My Favourite List</h1>
+    </div>
+    
+    <div class="my-3">
+        <div class="row justify-content-center mb-2">
+            <span class="d-block d-sm-none" style="font-size: 12px; color: #32c69a;">You have {{length}} Product in Your Favourite list</span>
+            <span class="d-none d-sm-block" style="color: #32c69a;">You have {{length}} Product in Your Favourite list</span>
+        </div>
+        <!-- <div class="row justify-content-center mb-5">
+            <a (click)="clearFavourite()" class="btn btn-danger btn-sm d-block d-sm-none"><i class="fa fa-trash"></i> Clear List</a>
+            <a (click)="clearFavourite()" class="btn btn-danger d-none d-sm-block"><i class="fa fa-trash"></i> Clear List</a>
+        </div> -->
+        <div *ngFor="let favourite of favouriteProducts;" >
+            <div *ngFor="let i of favourite.favouriteProducts; let currentIndex = index;">
+                <div class="row mx-4 mb-2 align-items-center d-flex d-sm-none" style="border: 2px solid #32c69a; background-color: #f4f8fb;" *ngIf="favourite.favouriteProducts[0] ">
+                    <div class="col-sm-3">
+                        <div class="row justify-content-center my-2">
+                            <img src={{i.photoURL}} style="width: 70%; height: 70%;">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="row justify-content-center mt-2" style="font-size: 16px;">
+                            {{i.name}}
+                        </div>
+                        <div class="row justify-content-center" style="font-size: 16px;">
+                            {{i.price}} EGP
+                        </div>
+                        <div class="row justify-content-center mb-2">
+                            <a [routerLink]="['/products/details']" [queryParams]="{ID: i._id}" routerLinkActive="router-link-active" style="color:#404040;text-decoration: underline; font-size: 16px;">Details</a>
+                        </div>
+                        <div class="row justify-content-center mb-2">
+                            <!-- <button (click)="addToCart(i)" class="px-1 py-0 m-1 btn" id="add-cart"><i class="fa fa-cart-plus"></i></button> -->
+                            <a (click)="deleteFavourite(i._id,currentIndex)" class="px-1 py-0 m-1 btn btn-danger remove"><i class="fa fa-minus-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mx-5 mb-2 align-items-center d-none d-sm-flex" style="border: 2px solid #32c69a; background-color: #f4f8fb;" *ngIf="favourite.favouriteProducts[0] " >
+                    <div class="col-sm-3">
+                        <img src={{i.photoURL}} style="width: 70%; height: 70%;">
+                    </div>
+                    <div class="col-sm-3 d-flex d-md-none" style="font-size: 17px;">
+                        {{i.name}}
+                    </div>
+                    <div class="col-sm-3 d-none d-md-flex" style="font-size: 20px;">
+                        {{i.name}}
+                    </div>
+                    <div class="col-sm-2 d-flex d-md-none" style="font-size: 17px;">
+                        {{i.price}} EGP
+                    </div>
+                    <div class="col-sm-2 d-none d-md-flex" style="font-size: 20px;">
+                        {{i.price}} EGP
+                    </div>
+                    <div class="col-sm-2 ">
+                        <a [routerLink]="['/products/details']" [queryParams]="{ID: i._id}" routerLinkActive="router-link-active" style="color:#404040;text-decoration: underline;">Details</a>
+                    </div>
+                    <div class="col-sm-2 ">
+                        <!-- <button (click)="addToCart(i)" class="px-1 py-0 m-1 btn" id="add-cart"><i class="fa fa-cart-plus"></i></button> -->
+                        <a (click)="deleteFavourite(i._id,currentIndex)" class="px-1 py-0 m-1 btn btn-danger remove"><i class="fa fa-minus-square"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div *ngIf="!favouriteProducts" class="d-flex justify-content-center mt-5">
+        You haven't any favourite products
+    </div>
+</div>
+
+<app-footer></app-footer>

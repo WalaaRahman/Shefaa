@@ -1,0 +1,20 @@
+#add-btn {
+    border-color: #32c69a;
+    color: #32c69a;
+  }
+  
+  #add-btn:hover {
+    background: #32c69a;
+    color:white;
+    
+    }
+    .btn{
+        margin-top: 15px;
+    }
+    #heart{
+        float: right;
+    }
+    .card:hover{
+    transform: scale(1.05);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+  }

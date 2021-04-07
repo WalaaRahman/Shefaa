@@ -1,0 +1,115 @@
+<app-header></app-header>
+
+<div class="container-fluid" style="background-color: #f4f8fb">
+    <div >
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-8 mb-2">
+                <div class="d-flex justify-content-center" style="margin-top: 80px;">
+                    <h1>Your Cart</h1>
+                </div>
+
+                <div class="row d-flex justify-content-center" *ngFor="let user of User;">
+                    <div class="col-sm-4 " *ngFor="let i of user.cartProducts; let currentIndex = index;">
+                        <div class="card shadow m-2" *ngIf="user.cartProducts[0] ">
+
+                            <img src="{{i.photoURL}}" class="card-img-top" style="height: 20vw;">
+                            <div class="card-body">
+                                <h5 class="card-text"><b><i>{{i.price}} L.E</i></b></h5>
+                                <h5 class="card-title">{{i.name}}</h5>
+                                <!-- <h5 class="card-text" >product Model Qnt: {{i.quantity}}</h5> -->
+                                <!-- <div class="input-group number-spinner">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" data-dir="dwn">
+                                            <span class="glyphicon glyphicon-minus">-</span>
+                                        </button>
+                                    </span>
+                                    <input type="text" class="form-control text-center">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" data-dir="up" (click)="increaseQuantity(i)">
+                                            <span class="glyphicon glyphicon-plus">+</span>
+                                        </button>
+                                    </span>
+
+                                </div> -->
+
+                                <a class="details" href="" style="text-decoration: underline;">Details</a>
+                                <br>
+                                <br>
+                                <button (click)="delete(i._id,currentIndex)" class="btn btn-outline-danger btn-sm"
+                                    id="add-btn">Remove from Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class=" col-sm-3">
+                <div class="d-flex justify-content-center p-3" style="margin-top: 130px;">
+                    <div class=" subtotal-div p-3 shadow">
+                        <div class="text-center w-100 ">
+                            <div class="row justify-content-center">
+                            <h4>Total Items:&nbsp;</h4><h4 style="color: darkcyan;">{{cartLength}}</h4>
+                            </div>
+                            <div class="row justify-content-center">
+                            <h4>Subtotal:&nbsp;</h4><h4 style="color: darkcyan;">{{totalPrice}}</h4>
+                            </div>
+                            <a [routerLink]="['/cart/checkout']" routerLinkActive="router-link-active"
+                                class="btn proceed-btn m-2">Proceed to Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>
+
+
+<!-- <app-header></app-header>
+
+<body>
+    <div class="container-fliud "  style="margin-top: 80px;">
+        <div class="row" >
+            <div class="col-sm-2" style="background-color: yellowgreen;"></div>
+            <div class="col-sm-8" style="background-color: violet;">
+                <div class="d-flex justify-content-center">
+                    <h1>Your Cart</h1>
+                </div>
+                <div class="row" >
+                    <div *ngFor="let item of items;">
+                        <div class="card shadow m-2" *ngIf="items" style="width: 30%; height: auto;" >
+                            <img src={{item.photoURL}} class="card-img-top">
+                            <div class="card-body" >
+                                <h5 class="card-title">Name : {{item.name}}</h5>
+                                <h5 class="card-text">Price : {{item.price}}</h5>
+                                <h5>Quantity {{item.quantity}}<input type="number" placeholder="1" [(ngModel)]="quantity" min="1"
+                                        style="margin-left:2%;width: 20%;height: 10%;"></h5>
+                                <a class="details" href="" style="text-decoration: underline;">Details</a>
+                                <br>
+                                <br>
+                                <a href="" class="btn btn-outline-danger btn-sm" id="add-btn">Remove from Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2" style="background-color: teal;">
+                <div class="d-flex justify-content-center p-3">
+                    <div class="col-sm-9 subtotal-div shadow">
+                        <div class="text-center">
+                            <h3>Number of Items:{{quantity}}</h3>
+                            <h3>Subtotal: 460 </h3>
+                            <a class="btn proceed-btn">Proceed to Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<app-footer></app-footer> -->

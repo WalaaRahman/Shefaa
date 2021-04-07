@@ -1,0 +1,71 @@
+<app-header></app-header>
+<div class="container-fluid" *ngIf="user" style="margin-top: 80px;">
+    <h2 class="d-flex justify-content-center" style="color: #32c69a;">Check Out</h2>
+    <div class="card shadow m-3 p-5">
+        <div class="row mb-3">
+            <label class="form-label" style="color: #838383;">Name :</label>
+            <input type="text" class="form-control" placeholder="Enter Your Name" value={{user.name}}>
+        </div>
+        <div class="row mb-3">
+            <label class="form-label" style="color: #838383;">Address Details :</label>
+            <input type="text" class="form-control" placeholder="Enter Your Address" value={{user.address}}>
+        </div>
+        <div class="row mb-3">
+            <label class="form-label" style="color: #838383;">Mobile Number :</label>
+            <input type="text" class="form-control" placeholder="Enter Your Address" value={{user.phone}}>
+        </div>
+        <div class="row mb-3">
+            <label class="form-label" style="color: #838383;">Promo Code :</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="card-body text-center  d-block d-sm-none" style="color:#32c69a; font-size: 15px;">Payment Method  <span style="color: #404040;">Cash $$</span></div>
+        <div class="card-body text-center d-none d-sm-block" style="color:#32c69a; font-size: 30px;">Payment Method : <span style="color: #404040;">Cash $$</span></div>
+    </div>
+    <div class="card shadow m-4 p-2" style="border-radius: 30px; background-color: #f4f8fb; color: #404040;">
+        <div class="card-body text-center">
+            <div class="card-title" style="color:#32c69a;">Subtotal : <span style="color: #404040;">{{totalPrice}} EGP</span></div>
+            <div class="card-title" style="color:#32c69a;">Delivery : <span style="color: #404040;">{{delevery}} EGP</span></div>
+            <div class="card-title" style="color:#32c69a;">Total : <span style="color: #404040;">{{total}} EGP</span></div>
+            <a class="card-text" [routerLink]="['/cart/shipment']" routerLinkActive="router-link-active" class="btn btn-outline-light m-1" id="add-btn">Confirm Order</a>
+        </div>
+        
+    </div>
+
+</div>
+<app-footer></app-footer>
+
+<!-- <app-header></app-header>
+<div class="d-flex justify-content-center checkout-page">
+    <div class="col-sm-8 shadow " style="padding-top: 20px; margin-top:10%; margin-bottom: 10%;background-color: white">
+        <br />
+        <div class="d-flex justify-content-center w-100 ">
+            <form style="padding-bottom: 35px;width: 60%;">
+                <h1 class="text-center mb-3">Checkout</h1>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" placeholder="Enter Name" id="name" />
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">Address:</label>
+                    <input type="email" class="form-control" placeholder="Enter email" id="email" />
+                </div>
+
+                <div class="form-group">
+                    <label for="mobilenumber">Mobile Number:</label>
+                    <input type="text" class="form-control" placeholder="Mobile Number" id="mobilenumber" />
+                </div>
+
+
+
+
+
+                <a [routerLink]="['/profile/']" class="btn"
+                    style="background-color: #32c69a; color: white; margin-top: 5px">
+                    Confirm Order</a>
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer> -->
